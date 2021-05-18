@@ -2,10 +2,10 @@
 import {externalUrls} from "../lib/externalUrls";
 import {navigate2ToDoApp} from "../screen-play-design-pattern/action/navigation";
 import {header} from "../screen-play-design-pattern/ui/header";
-import {defineInfoPane, infoPane} from "../screen-play-design-pattern/ui/infoPane";
+import {defineInfoPane, infoPane} from "../screen-play-design-pattern/ui/info-pane";
 import {toDoTextBox} from "../screen-play-design-pattern/ui/toDoBox";
 import {footer} from "../screen-play-design-pattern/ui/footer";
-import {itemList} from "../screen-play-design-pattern/ui/itemList";
+import {itemList} from "../screen-play-design-pattern/ui/item-list";
 
 describe('todo App', () => {
     before(() => {
