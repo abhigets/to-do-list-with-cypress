@@ -15,11 +15,23 @@ describe('Add item', () => {
     });
 
     context('On adding a new item', () => {
-        it('Should have a item in list and footer', () => {
+        beforeEach(() => {
             addItem('milk')
+        });
+
+        afterEach(() => {
+            localStorage.clear();
+        });
+
+        it('Should have a item in list', () => {
             itemList()
                 .should('be.visible')
                 .should('have.text', 'milk');
+            footer()
+                .should('be.visible')
+        });
+
+        it('Should have a footer', () => {
             footer()
                 .should('be.visible')
         });
