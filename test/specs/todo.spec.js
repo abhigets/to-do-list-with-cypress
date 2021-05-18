@@ -3,6 +3,7 @@ import {externalUrls} from "../lib/externalUrls";
 import {navigate2ToDoApp} from "../screen-play-design-pattern/action/navigation";
 import {header} from "../screen-play-design-pattern/ui/header";
 import {defineFooter, footer} from "../screen-play-design-pattern/ui/footer";
+import {toDoTextBox} from "../screen-play-design-pattern/ui/toDoBox";
 
 describe('todo App', () => {
     before(() => {
@@ -40,6 +41,13 @@ describe('todo App', () => {
                     .contains('a', text)
                     .should('have.attr', 'href', href);
             });
+        });
+    });
+
+    context('todo text box', () => {
+        it('Should have a tip to use application', () => {
+            toDoTextBox()
+                .should('have.attr', 'placeholder', 'What needs to be done?');
         });
     });
 
