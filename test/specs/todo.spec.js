@@ -2,8 +2,10 @@
 import {externalUrls} from "../lib/externalUrls";
 import {navigate2ToDoApp} from "../screen-play-design-pattern/action/navigation";
 import {header} from "../screen-play-design-pattern/ui/header";
-import {defineFooter, footer} from "../screen-play-design-pattern/ui/footer";
+import {defineInfoPane, infoPane} from "../screen-play-design-pattern/ui/infoPane";
 import {toDoTextBox} from "../screen-play-design-pattern/ui/toDoBox";
+import {footer} from "../screen-play-design-pattern/ui/footer";
+import {itemList} from "../screen-play-design-pattern/ui/itemList";
 
 describe('todo App', () => {
     before(() => {
@@ -18,13 +20,13 @@ describe('todo App', () => {
         });
     });
 
-    context('Footer', () => {
+    context('Info pane', () => {
         beforeEach(() => {
-            defineFooter();
+            defineInfoPane();
         });
 
         it('Should have a tip to use application', () => {
-            footer()
+            infoPane()
                 .should('contain', 'Double-click to edit a todo')
                 .should('contain', 'Created by petehunt')
                 .should('contain', 'Part of TodoMVC');
@@ -37,7 +39,7 @@ describe('todo App', () => {
             ];
 
             links.forEach(([text, href]) => {
-                footer()
+                infoPane()
                     .contains('a', text)
                     .should('have.attr', 'href', href);
             });
@@ -48,6 +50,20 @@ describe('todo App', () => {
         it('Should have a placeholder text', () => {
             toDoTextBox()
                 .should('have.attr', 'placeholder', 'What needs to be done?');
+        });
+    });
+
+    context('Footer', () => {
+        it('Should not exist', () => {
+            footer()
+                .should('not.exist');
+        });
+    });
+
+    context('Item list', () => {
+        it('Should not exist', () => {
+            itemList()
+                .should('not.exist');
         });
     });
 
