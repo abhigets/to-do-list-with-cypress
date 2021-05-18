@@ -1,36 +1,32 @@
 /// <reference types="cypress" />
-const urls = {
-    toDoApp: "/"
-};
-
-const externalUrls = {
-    petehunt: () => 'http://github.com/petehunt/',
-    todoMVC: () => 'http://todomvc.com',
-};
+import {externalUrls} from "../lib/externalUrls";
+import {navigate2ToDoApp} from "../screen-play-design-pattern/action/navigation";
+import {header} from "../screen-play-design-pattern/ui/header";
+import {defineFooter, footer} from "../screen-play-design-pattern/ui/footer";
 
 describe('todo App', () => {
     before(() => {
-        cy.visit(urls.toDoApp);
+        navigate2ToDoApp();
     });
 
     context('Header', () => {
         it('Should have a title', () => {
-            cy.get('h1').as('header');
-            cy.get('@header').should('be.visible');
-            cy.get('@header').should('have.text', 'todos')
+            header()
+                .should('be.visible')
+                .should('have.text', 'todos');
         });
     });
 
     context('Footer', () => {
         beforeEach(() => {
-            cy.get('.info').as('footer');
+            defineFooter();
         });
 
         it('Should have a tip to use application', () => {
-            cy.get('@footer')
+            footer()
                 .should('contain', 'Double-click to edit a todo')
                 .should('contain', 'Created by petehunt')
-                .should('contain', 'Part of TodoMVC')
+                .should('contain', 'Part of TodoMVC');
         });
 
         it('Should have the correct text and href', () => {
@@ -40,11 +36,11 @@ describe('todo App', () => {
             ];
 
             links.forEach(([text, href]) => {
-                cy.get('@footer')
+                footer()
                     .contains('a', text)
-                    .should('have.attr', 'href', href)
+                    .should('have.attr', 'href', href);
             });
         });
     });
-    
+
 });
