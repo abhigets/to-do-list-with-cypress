@@ -1,13 +1,13 @@
 /// <reference types="cypress" />
-import {externalUrls} from "../lib/externalUrls";
+import {externalUrls} from "../lib/external-urls";
 import {navigate2ToDoApp} from "../screen-play-design-pattern/action/navigation";
 import {header} from "../screen-play-design-pattern/ui/header";
-import {defineInfoPane, infoPane} from "../screen-play-design-pattern/ui/info-pane";
-import {toDoTextBox} from "../screen-play-design-pattern/ui/toDoBox";
+import {infoPane} from "../screen-play-design-pattern/ui/info-pane";
+import {toDoTextBox} from "../screen-play-design-pattern/ui/todo-box";
 import {footer} from "../screen-play-design-pattern/ui/footer";
 import {itemList} from "../screen-play-design-pattern/ui/item-list";
 
-describe('todo App', () => {
+describe('todos App', () => {
     before(() => {
         navigate2ToDoApp();
     });
@@ -21,10 +21,6 @@ describe('todo App', () => {
     });
 
     context('Info pane', () => {
-        beforeEach(() => {
-            defineInfoPane();
-        });
-
         it('Should have a tip to use application', () => {
             infoPane()
                 .should('contain', 'Double-click to edit a todo')
