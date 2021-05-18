@@ -1,1 +1,4 @@
-{}
+{
+  "integrationFolder": "test/specs",
+  "baseUrl": "https://todomvc.com/examples/react"
+}
