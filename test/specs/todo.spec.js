@@ -45,7 +45,7 @@ describe('todo App', () => {
     });
 
     context('todo text box', () => {
-        it('Should have a tip to use application', () => {
+        it('Should have a placeholder text', () => {
             toDoTextBox()
                 .should('have.attr', 'placeholder', 'What needs to be done?');
         });
