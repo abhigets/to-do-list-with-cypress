@@ -1,6 +1,7 @@
 # to-do-list-with-cypress
 
 This project is for cypress hand-on
+The application under test is https://todomvc.com/examples/react
 
 ## Setup
 
