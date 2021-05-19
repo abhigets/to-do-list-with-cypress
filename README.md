@@ -15,7 +15,12 @@ Runs the test in headless mode
 
 Launches the cypress GUI. Test can be run interactively using GUI
 
-## Scenario's
+## Scenario's implemented in cypress test
+1. I am able to have an empty view of items
+2. I am able add item
+3. I am able to filter an item based on its competition state
+
+## Scenario's for exploratory testing
 
 1. Existing features
     1. I am able to have an empty view of items
